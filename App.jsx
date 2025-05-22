@@ -38,15 +38,22 @@ function App() {
                     placeholder="Задачи на сегодня"
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                <button className="todo-submit-button" type="submit">
+                <button 
+                
+                className="todo-submit-button" type="submit">
                     Записать
                 </button>
             </form>
-            <div className="todo-list">
+            <ul className="todo-list">
                 {normalizedTodos.map(({ id, text }) => (
-                    <div key={id}>{text}</div>
+                    <li key={id} className='todo-item'>
+                        <span className='todo-text'>{text}</span>
+                        <button 
+                        
+                        className='todo-delete-button'>Удалить задачу</button>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     )
 }
