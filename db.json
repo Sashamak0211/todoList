@@ -1,20 +1,16 @@
 {
   "todos": [
     {
-      "id": "12",
-      "text": "asdasdasd"
+      "id": "1a46",
+      "textTrim": "ADASD"
     },
     {
-      "id": "13",
-      "text": "dfdfdf"
+      "id": "d4ad",
+      "textTrim": "asd"
     },
     {
-      "id": "a968",
-      "text": "фыв"
-    },
-    {
-      "id": "3a22",
-      "text": "фывфв"
+      "id": "7871",
+      "textTrim": "asd"
     }
   ]
 }
