@@ -3,7 +3,7 @@ import './App.css'
 import { useTodos } from './hooks/useTodo'
 
 function App() {
-    const { todos, addTodo } = useTodos()
+    const { todos, addTodo, deleteTodo } = useTodos()
     const [inputValue, setInputValue] = useState('')
 
     const handleSubmit = async (e) => {
@@ -20,6 +20,8 @@ function App() {
             console.error('Ошибка при добавлении задачи:', error)
         }
     }
+
+    const deleteForm = (id) => deleteTodo(id)
 
     const normalizedTodos = todos.map((todo) => ({
         id: todo.id,
@@ -38,19 +40,20 @@ function App() {
                     placeholder="Задачи на сегодня"
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                <button 
-                
-                className="todo-submit-button" type="submit">
+                <button className="todo-submit-button" type="submit">
                     Записать
                 </button>
             </form>
             <ul className="todo-list">
                 {normalizedTodos.map(({ id, text }) => (
-                    <li key={id} className='todo-item'>
-                        <span className='todo-text'>{text}</span>
-                        <button 
-                        
-                        className='todo-delete-button'>Удалить задачу</button>
+                    <li key={id} className="todo-item">
+                        <span className="todo-text">{text}</span>
+                        <button
+                            onClick={() => deleteForm(id)}
+                            className="todo-delete-button"
+                        >
+                            Удалить задачу
+                        </button>
                     </li>
                 ))}
             </ul>

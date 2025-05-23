@@ -43,8 +43,27 @@ export function useTodos() {
             console.error('Ошибка:', error)
         }
     }
+
+    const deleteTodo = async (id) => {
+try {
+    const response = await fetch(`http://localhost:3005/todos/${id}`, {
+        method: 'DELETE',
+    })
+    if(!response.ok) {
+        throw new Error('Ошибка при удалении задачи')
+    }
+    console.log('Задача удалена:', id);
+    
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id != id))
+}catch (error) {
+    console.error('Ошибка:', error);
+    
+}
+    }
+
     return {
         todos,
         addTodo,
+        deleteTodo,
     }
 }
